@@ -7,7 +7,6 @@ from sklearn.metrics import r2_score,mean_squared_error
 from sklearn.preprocessing import StandardScaler,PolynomialFeatures
 from sklearn.linear_model import Ridge
 df = pd.read_csv("StudentPerformanceFactors.csv")
-print(df.columns)
 df = df[['Hours_Studied', 'Attendance',
        'Previous_Scores','Exam_Score']]
 df = df.dropna()
@@ -31,4 +30,9 @@ rmse = np.sqrt(mse)
 print(f"mean squared error is {mse}")
 print(f"r2 is {r2}")
 print(f"rmse is {rmse}")
+results = pd.DataFrame({
+    "Actual": y_test,
+    "Predicted": y_pred
+})
+print(results.head())
 
